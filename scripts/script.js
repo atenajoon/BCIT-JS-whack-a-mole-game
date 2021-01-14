@@ -61,6 +61,9 @@ function startGame(){
     setTimeout(()=> timeUp = true, 10000)
 }
 
+// document.getElementById("MyElement"). className = "MyClass";
+
+
 function whacked(m){
     if(!m.isTrusted) return; // prevent fake clicks!
     score++;
