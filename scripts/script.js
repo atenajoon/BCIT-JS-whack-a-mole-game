@@ -33,53 +33,33 @@ function peep(min){
     hole.classList.add('up');
     setTimeout(()=>{
         hole.classList.remove('up');
-        if(!timeUp) peep();
+        if(!timeUp) peep(min);
     }, time);
 }
 
-function startGame(e){
+function startGame(){
+    if(document.getElementById("begginer").checked){
+        let val = document.getElementById("begginer").value;
+        console.log(val);
+        peep(400);
+    } else if(document.getElementById("intermediate").checked){
+        let val = document.getElementById("intermediate").value;
+        console.log(val);
+        peep(300);
+    } else if(document.getElementById("expert").checked){
+        let val = document.getElementById("expert").value;
+        console.log(val);
+        peep(200);
+    } else {
+        console.log("choose one!");
+        alert('you should choose the level of the game!');
+    }
 
-    // let val = document.getElementById("form");
-    // console.log(val.elements["form"].value)
-
-    // if(document.getElementById("begginer").checked){
-    //     let val = document.getElementById("begginer").value;
-    //     console.log(val);
-    // } else if(document.getElementById("intermediate").checked){
-    //     let val = document.getElementById("intermediate").value;
-    //     console.log(val);
-    // } else if(document.getElementById("expert").checked){
-    //     let val = document.getElementById("expert").value;
-    //     console.log(val);
-    // } else {
-    //     console.log("choose one!");
-    // }
-
-
-    // console.log(val);
-    e.preventDefault();
-    console.log("got")
-
-
-    // score = 0;
-    // scoreBoard.textContent = 0;
-    // timeUp = false;
-    // if(val === "begginer"){
-    //     peep(400);
-    // }
-    // else if(val === "intermediate"){
-    //     peep(300);
-    // }
-    // else if(val === "expert"){
-    //     peep(200);
-    // }
-    // else {
-    //     alert('you should choose the level of the game!');
-    // }
-    // setTimeout(()=> timeUp = true, 10000)
+    score = 0;
+    scoreBoard.textContent = 0;
+    timeUp = false;
+    setTimeout(()=> timeUp = true, 10000)
 }
-
-
 
 function whacked(m){
     if(!m.isTrusted) return; // prevent fake clicks!
